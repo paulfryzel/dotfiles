@@ -1,0 +1,26 @@
+colorscheme base16-default
+
+set background=dark
+set cc=80
+set cursorline
+set expandtab
+set guifont=Menlo:h14
+set number
+set shiftwidth=2
+set tabstop=2
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let java_highlight_functions="style"
+
+au FileType go setl sw=2 ts=2 sts=0 noet
+
+au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
+au BufRead,BufNewFile *.json setl sw=4 ts=4 sts=0 et
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
